@@ -10,4 +10,6 @@ public interface ServiceProduse {
 
 	public List<Produse> searchProdus(String theSearchName);
 
+	public Produse getProdus(int theId);
+
 }

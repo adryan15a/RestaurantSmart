@@ -19,20 +19,21 @@
 <body>
 	<div id ="wrapper">
 		<div id = "header">
-			<h2>Meniul Restaurantului</h2>
+			<h2>Produse in COS</h2>
 		</div>
 	</div>
 	<div id ="container">
 		<div id = "content">
+		
+			<!-- put new button:Trimite Comanda -->
 			
-			<input type="button" onclick="window.location.href='cos';" value="COS ${nrPortiiTotal}" class="add-button" />
+			<input type="button" value="Trimite Comanda" onclick="window.location.href='showFormForAdd'; return false;" class="add-button"/>
+				
+			<!-- Button to meniu -->
+			<input type="button" onclick="window.location.href='list';" value="La Meniu" class="add-button" /> 
 			
-			<!--  add a search box -->
-            <form:form action="search" method="POST">
-                Cauta produs: <input type="text" name="theSearchName" />
-                
-                <input type="submit" value="Search" class="add-button" />
-			</form:form>
+			
+			<h3 class="add-button">Total: ${totalCos} RON</h3>
 			
 			<!-- add out html table here -->
 			
@@ -41,19 +42,19 @@
 					<th>Nume Produs</th>
 					<th>Descriere Produs</th>
 					<th>Pret Unitar</th>
-					<th>Adauga in cos</th>
+					<th>Numar Produse ${nrPortiiTotal}</th>
 				</tr>
-				<c:forEach var="listProduse" items="${listaProduse}">
+				<c:forEach var="theProdus" items="${produse}">
 				
-					<c:url var="adaugaLink" value="/produse/adaugaProdusInCos">
-						<c:param name="IdProdus" value="${listProduse.idProdus}" />
+					<c:url var="adaugaPortie" value="/produse/adaugaPortie">
+						<c:param name="IdProdus" value="${theProdus.idProdus}" />
 					</c:url>
 					
 					<tr>
-						<td>${listProduse.getNumeProdus()}</td>
-						<td>${listProduse.getDescriereProdus()}</td>
-						<td>${listProduse.getPretUnitar()}</td>
-						<td><a href="${adaugaLink}">+</a></td>
+						<td>${theProdus.getNumeProdus()}</td>
+						<td>${theProdus.getDescriereProdus()}</td>
+						<td>${theProdus.getPretUnitar()}</td>
+						<td><a href="${adaugaPortie}">Adauga</a></td>
 					</tr>
 				</c:forEach>
 			</table>

@@ -61,4 +61,20 @@ public class ProduseDAOImpl implements ProduseDAO {
         return listaProduse;
 	}
 
+	@Override
+	public Produse getProdus(int theId) {
+		
+		// get the current hibernate session
+        Session currentSession = sessionFactory.getCurrentSession();
+        
+        Produse result = currentSession.get(Produse.class, theId);
+        
+        //for every getProdus we take 1 from stock
+        int nivelStock = result.getNivelExistent() -1;
+        
+        result.setNivelExistent(nivelStock);
+		
+		return result;
+	}
+
 }

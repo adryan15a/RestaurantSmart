@@ -30,4 +30,10 @@ public class ServiveProduseImpl implements ServiceProduse {
 		return produseDAO.searchProdus(theSearchName);
 	}
 
+	@Override
+	@Transactional
+	public Produse getProdus(int theId) {
+		return produseDAO.getProdus(theId);
+	}
+
 }
