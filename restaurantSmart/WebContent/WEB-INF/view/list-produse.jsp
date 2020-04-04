@@ -27,6 +27,8 @@
 			
 			<input type="button" onclick="window.location.href='cos';" value="COS ${nrPortiiTotal}" class="add-button" />
 			
+			
+			
 			<!--  add a search box -->
             <form:form action="search" method="POST">
                 Cauta produs: <input type="text" name="theSearchName" />
@@ -45,7 +47,7 @@
 				</tr>
 				<c:forEach var="listProduse" items="${listaProduse}">
 				
-					<c:url var="adaugaLink" value="/produse/adaugaProdusInCos">
+					<c:url var="adaugaLink" value="adaugaProdusInCos">
 						<c:param name="IdProdus" value="${listProduse.idProdus}" />
 					</c:url>
 					

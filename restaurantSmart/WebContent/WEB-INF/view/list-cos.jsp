@@ -27,7 +27,9 @@
 		
 			<!-- put new button:Trimite Comanda -->
 			
-			<input type="button" value="Trimite Comanda" onclick="window.location.href='showFormForAdd'; return false;" class="add-button"/>
+		    <input type="button" value="Trimite Comanda" onclick="location.href='trimiteComanda'; return false;" class="add-button"/> 
+				
+				
 				
 			<!-- Button to meniu -->
 			<input type="button" onclick="window.location.href='list';" value="La Meniu" class="add-button" /> 
@@ -50,11 +52,15 @@
 						<c:param name="IdProdus" value="${theProdus.idProdus}" />
 					</c:url>
 					
+					<c:url var="stergePortie" value="/produse/stergePortie">
+						<c:param name="IdProdus" value="${theProdus.idProdus}" />
+					</c:url>
+					
 					<tr>
 						<td>${theProdus.getNumeProdus()}</td>
 						<td>${theProdus.getDescriereProdus()}</td>
 						<td>${theProdus.getPretUnitar()}</td>
-						<td><a href="${adaugaPortie}">Adauga</a></td>
+						<td><a href="${adaugaPortie}">Adauga</a>|<a href="${stergePortie}">Sterge</a></td>
 					</tr>
 				</c:forEach>
 			</table>
